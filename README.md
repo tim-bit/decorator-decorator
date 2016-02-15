@@ -1,5 +1,5 @@
 # decorator-decorator
-An ES7 decorator to create decorators
+An ES7 decorator to turn classes into decorators
 
 ## Installation
 
@@ -22,6 +22,12 @@ class Foo {
 	decorate({target, prop, descriptor}, param1, param2) {
 		// do stuff
 	}
+}
+
+// now you can use Foo as decorator
+
+@Foo
+class Bar {
 }
 
 ```
