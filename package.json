@@ -1,6 +1,6 @@
 {
 	"name": "decorator-decorator",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "A decorator to turn classes into decorators",
 	"main": "build/index.js",
 	"scripts": {
@@ -15,6 +15,10 @@
 		"es7",
 		"decorator"
 	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/tkuminecz/decorator-decorator.git"
+	},
 	"author": "tkuminecz@gmail.com",
 	"license": "MIT",
 	"devDependencies": {
