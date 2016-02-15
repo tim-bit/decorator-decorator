@@ -1,8 +1,11 @@
 {
   "name": "decorator-decorator",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "An ES7 decorator to turn classes into decorators",
   "main": "build/index.js",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "clean": "rm -rf build",
     "jspm:install": "./node_modules/.bin/jspm install",
