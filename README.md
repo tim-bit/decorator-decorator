@@ -3,6 +3,9 @@ An ES7 decorator to create decorators
 
 ## Installation
 
+```
+$ npm install decorator-decorator
+```
 
 ## Usage
 

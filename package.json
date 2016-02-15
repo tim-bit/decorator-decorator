@@ -1,12 +1,13 @@
 {
 	"name": "decorator-decorator",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "A decorator to turn classes into decorators",
 	"main": "build/index.js",
 	"scripts": {
 		"clean": "rm -rf build",
 		"prebuild": "npm run clean",
 		"build": "./node_modules/.bin/jspm build decorator-decorator build/index.js --minify --format umd --global-name DecoratorDecorator --skip-source-maps",
+		"prepublish": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "./node_modules/.bin/jspm-server --port=45345 src/"
 	},
