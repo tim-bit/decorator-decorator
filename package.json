@@ -1,6 +1,6 @@
 {
   "name": "decorator-decorator",
-  "version": "0.1.9",
+  "version": "0.1.11",
   "description": "An ES7 decorator to turn classes into decorators",
   "main": "build/index.js",
   "files": [
@@ -10,8 +10,8 @@
     "clean": "rm -rf build",
     "jspm:install": "./node_modules/.bin/jspm install",
     "postinstall": "npm run jspm:install",
-    "prebuild": "npm run clean && npm run test && npm run jspm:install",
-    "build": "./node_modules/.bin/jspm build decorator-decorator build/index.js --minify --format umd --global-name DecoratorDecorator --skip-source-maps",
+    "prebuild": "npm run clean && npm run test",
+    "build": "./node_modules/.bin/jspm build decorator-decorator - reflect build/index.js --minify --format umd --global-name DecoratorDecorator --skip-source-maps",
     "prepublish": "npm run build",
     "test": "jspm run tests | ./node_modules/.bin/faucet",
     "start": "./node_modules/.bin/jspm-server --port=45345 src/"
@@ -37,12 +37,12 @@
       "baseURL": "src"
     },
     "dependencies": {
+      "reflect": "npm:harmony-reflect@^1.4.2"
     },
     "devDependencies": {
       "babel-plugin-transform-decorators-legacy": "npm:babel-plugin-transform-decorators-legacy@^1.3.4",
       "babel-preset-stage-1": "npm:babel-preset-stage-1@^6.5.0",
       "plugin-babel": "npm:systemjs-plugin-babel@^0.0.2",
-      "reflect": "npm:harmony-reflect@^1.4.2",
       "tape": "npm:tape@^4.4.0"
     },
     "peerDependencies": {
