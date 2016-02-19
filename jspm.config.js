@@ -5,10 +5,13 @@ SystemJS.config({
     "github:*/*.json"
   ],
   transpiler: "plugin-babel",
-
   babelOptions: {
-    "presets": ["babel-preset-stage-1"],
-    "plugins": ["babel-plugin-transform-decorators-legacy"]
+    "presets": [
+      "babel-preset-stage-1"
+    ],
+    "plugins": [
+      "babel-plugin-transform-decorators-legacy"
+    ]
   },
 
   map: {
@@ -20,10 +23,12 @@ SystemJS.config({
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
+    "lodash": "npm:lodash@4.5.0",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
     "plugin-babel": "npm:systemjs-plugin-babel@0.0.4",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
+    "reflect": "npm:harmony-reflect@1.4.2",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "tape": "npm:tape@4.4.0",
     "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
@@ -32,11 +37,11 @@ SystemJS.config({
   },
 
   packages: {
-    "tests": {
+    "decorator-decorator": {
       "format": "esm",
       "main": "main.js"
     },
-    "decorator-decorator": {
+    "tests": {
       "format": "esm",
       "main": "main.js"
     },
