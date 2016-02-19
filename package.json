@@ -1,0 +1,67 @@
+{
+  "name": "decorator-decorator",
+  "version": "0.1.0",
+  "description": "Seed repository for a umd module (jspm)",
+  "author": "tkuminecz@gmail.com",
+  "license": "MIT",
+  "homepage": "https://github.com/tim-bit/decorator-decorator#readme",
+  "keywords": [
+    "umd",
+    "module",
+    "seed",
+    "jspm"
+  ],
+  "bugs": {
+    "url": "https://github.com/tim-bit/decorator-decorator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tim-bit/decorator-decorator.git"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "jspm": "^0.17.0-beta.7"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/jspm install",
+    "test": "./node_modules/.bin/jspm run tests | ./node_modules/.bin/faucet"
+  },
+  "jspm": {
+    "name": "decorator-decorator",
+    "devDependencies": {
+      "babel-plugin-transform-decorators-legacy": "npm:babel-plugin-transform-decorators-legacy@^1.3.4",
+      "babel-preset-stage-1": "npm:babel-preset-stage-1@^6.5.0",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.4",
+      "tape": "npm:tape@^4.4.0"
+    },
+    "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
+      "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
+      "core-js": "npm:core-js@^1.2.0",
+      "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
+      "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
+      "http": "github:jspm/nodelibs-http@^0.2.0-alpha",
+      "net": "github:jspm/nodelibs-net@^0.2.0-alpha",
+      "path": "github:jspm/nodelibs-path@^0.2.0-alpha",
+      "process": "github:jspm/nodelibs-process@^0.2.0-alpha",
+      "stream": "github:jspm/nodelibs-stream@^0.2.0-alpha",
+      "tty": "github:jspm/nodelibs-tty@^0.2.0-alpha",
+      "url": "github:jspm/nodelibs-url@^0.2.0-alpha",
+      "util": "github:jspm/nodelibs-util@^0.2.0-alpha"
+    },
+    "overrides": {
+      "npm:babel-runtime@5.8.35": {
+        "main": false,
+        "dependencies": {},
+        "optionalDependencies": {
+          "core-js": "^1.2.0"
+        }
+      },
+      "npm:inherits@2.0.1": {
+        "ignore": [
+          "test.js"
+        ]
+      }
+    }
+  }
+}
