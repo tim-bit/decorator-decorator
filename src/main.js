@@ -106,42 +106,6 @@ let decorator = (decoratorClass) => {
 	};
 };
 
-@decorator
-class Foo {
-
-	decorateClass(targetClass, ...params) {
-		console.log('decorateClass()', targetClass, params);
-	}
-
-	decorateProperty(targetPrototype, prop, descriptor, ...params) {
-		console.log('decorateProperty()', targetPrototype, prop, descriptor, params);
-	}
-
-	decorateAccessor(targetPrototype, prop, descriptor, ...params) {
-		console.log('decorateAccessor()', targetPrototype, prop, descriptor, params);
-	}
-
-	decorateMethod(proto, prop, desc, ...params) {
-		console.log('decorateMethod()', proto, prop, desc, params);
-	}
-}
-
-
-@Foo
-class Bar {
-
-	@Foo
-	property = {};
-
-	@Foo
-	method() {
-	}
-
-	@Foo
-	get accessor() {
-	} 
-
-}
 
 
 export default decorator;

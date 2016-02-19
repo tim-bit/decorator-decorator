@@ -10,7 +10,7 @@ console.log('tests');
  */
 test('plain class decorators', t => {
 
-	t.plan(2);
+	t.plan(1);
 
 	let staticMethod = () => {};
 	let instanceMethod = () => {};
@@ -24,6 +24,8 @@ test('plain class decorators', t => {
 			target.staticMethod = staticMethod;
 			target.prototype.instanceMethod = instanceMethod;
 
+			t.same(target, Bar);
+
 			return target;
 		}
 	}
@@ -32,12 +34,6 @@ test('plain class decorators', t => {
 	@Foo
 	class Bar {
 	}
-
-	// assertions
-	let bar = new Bar();
-
-	t.same(Bar.staticMethod, staticMethod, 'class was decorated with static method');
-	t.same(bar.instanceMethod, instanceMethod, 'class was decorated with instance method');
 });
 
 /**
@@ -51,7 +47,7 @@ test('invoked class decorators', t => {
 	// create the decorator
 	@decorator
 	class Foo {
-		decorate({target}, a, b) {
+		decorateClass({target}, a, b) {
 			return (...args) => {
 				let obj = Reflect.construct(target, args);
 				obj.hey = a;
