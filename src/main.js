@@ -17,22 +17,45 @@ let createTargetObject = (args) => {
 };
 
 /**
+ * Helper method to dispatch decoration of
+ * a class to the decorator class.
+ *
+ * @return {Object} [The decorated class constructor]
+ */
+let decorateClass = (decoratorClass, targetClass, params=[]) => {
+	return decoratorClass.decorateClass.apply(decoratorClass, [targetClass].concat(params));
+};
+
+/**
+ * Helper method to dispatch decoration of a
+ * class method/property to the decorator class.
+ * 
+ * @return {Object} [The decorated property descriptor]
+ */
+let decorateProperty = () => {
+
+};
+
+/**
  * Decorates a class to behave as a decorator. The class
  * being decorated must have a `decorate` method.
+ *
+ * @return {Object} [The decorator]
  */
 let decorator = (target) => {
-	let instance = Reflect.construct(target),
-		decorate = (targetObj, params=[]) => {
-			return instance.decorate.apply(instance, [targetObj].concat(params));
-		};
+	let instance = Reflect.construct(target);
 
 	return (...args) => {
+		console.log('decorator args', args, typeof args[0]);
 		if (args[0] instanceof Function) { // plain @decorator style
-			return decorate(createTargetObject(args));
+			console.log('plain decorator');
+			return decorateClass(instance, createTargetObject(args));
 		}
 		else { // invoked @decorator(param1, param2) style
+			console.log('invoked style');
 			return (...targetArgs) => {
-				return decorate(createTargetObject(targetArgs), args);
+				console.log('target args', targetArgs);
+				return decorateClass(instance, createTargetObject(targetArgs), args);
 			};
 		}
 	};

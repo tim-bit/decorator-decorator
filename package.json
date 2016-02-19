@@ -19,11 +19,15 @@
     "url": "git+ssh://git@github.com/tim-bit/decorator-decorator.git"
   },
   "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "eslint": "^2.1.0",
     "faucet": "0.0.1",
     "jspm": "^0.17.0-beta.7"
   },
   "scripts": {
     "postinstall": "./node_modules/.bin/jspm install",
+    "lint": "./node_modules/.bin/eslint src/**/*.js tests/**/*.js",
+    "pretest": "npm run lint",
     "test": "./node_modules/.bin/jspm run tests | ./node_modules/.bin/faucet"
   },
   "jspm": {

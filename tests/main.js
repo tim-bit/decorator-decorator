@@ -18,7 +18,7 @@ test('plain class decorators', t => {
 	// create a decorator
 	@decorator
 	class Foo {
-		decorate({target, prop, desc}) {
+		decorateClass(target) {
 
 			// just add some methods
 			target.staticMethod = staticMethod;
@@ -53,7 +53,7 @@ test('invoked class decorators', t => {
 	class Foo {
 		decorate({target}, a, b) {
 			return (...args) => {
-				let obj = Reflect.construct(target);
+				let obj = Reflect.construct(target, args);
 				obj.hey = a;
 				obj.ho = b;
 				return obj;
@@ -69,8 +69,6 @@ test('invoked class decorators', t => {
 	// assertions
 	let bar = new Bar();
 
-	console.log(bar);
-
 	t.equal(bar.hey, 'arg1');
 	t.deepEqual(bar.ho, {baz: 'bat'});
 });
@@ -81,6 +79,28 @@ test('invoked class decorators', t => {
  */
 test('plain class property decorators', t => {
 	t.plan(1);
+
+
+	// create the decorator
+	@decorator
+	class Foo {
+		decorate({target, prop, desc}) {
+			console.log('targets', target, prop, desc);
+		}
+	}
+
+	// now use the decorator
+	class Bar {
+		@Foo
+		foobizzle() {
+			console.log('foobizzle');
+		}
+	}
+
+	// assertions
+
+	let b = new Bar();
+	b.foobizzle();
 	t.pass();
 });
 
