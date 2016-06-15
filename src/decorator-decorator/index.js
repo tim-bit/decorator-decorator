@@ -1,4 +1,4 @@
-import Reflect from 'reflect';
+import Reflect from 'harmony-reflect';
 
 /**
  * Converts an array of arguments into a target object
