@@ -12,7 +12,8 @@
     "prebuild": "npm run clean && npm run test",
     "build": "./node_modules/.bin/jspm build decorator-decorator - reflect build/index.js --minify --format umd --global-name DecoratorDecorator --skip-source-maps",
     "prepublish": "npm run build",
-    "test": "jspm run tests | ./node_modules/.bin/faucet",
+    "test:run": "./node_modules/.bin/jspm run tests",
+    "test": "npm run test:run | ./node_modules/.bin/faucet",
     "start": "./node_modules/.bin/jspm-server --port=45345 src/"
   },
   "keywords": [
@@ -67,10 +68,28 @@
           "core-js": "^1.2.0"
         }
       },
+      "npm:debug@2.2.0": {
+        "main": "browser.js",
+        "jspmNodeConversion": false,
+        "format": "cjs",
+        "map": {
+          "./browser.js": {
+            "node": "./node.js"
+          },
+          "fs": "@node/fs",
+          "net": "@node/net",
+          "tty": "@node/tty",
+          "util": "@node/util"
+        }
+      },
       "npm:inherits@2.0.1": {
         "ignore": [
           "test.js"
         ]
+      },
+      "npm:ms@0.7.1": {
+        "jspmNodeConversion": false,
+        "format": "cjs"
       }
     }
   }

@@ -30,14 +30,9 @@ let decorator = (target) => {
 		};
 
 	return (...args) => {
-		if (args[0] instanceof Function) { // called without arguments
-			return decorate(createTargetObject(args));
-		}
-		else { // called with arguments
-			return (...target_args) => {
-				return decorate(createTargetObject(target_args), args);
-			};
-		}
+		return (...target_args) => {
+			return decorate(createTargetObject(target_args), args);
+		};
 	};
 
 };
