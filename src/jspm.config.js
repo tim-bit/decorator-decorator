@@ -4,7 +4,6 @@ SystemJS.config({
 		"npm:*.json",
 		"github:*/*.json"
 	],
-	globalEvaluationScope: false,
 	transpiler: "plugin-babel",
 	paths: {
 		"decorator-decorator/": "decorator-decorator/",
