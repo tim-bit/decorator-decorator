@@ -1,6 +1,6 @@
 {
   "name": "decorator-decorator",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "An ES7 decorator to turn classes into decorators",
   "main": "build/index.js",
   "files": [
@@ -13,6 +13,7 @@
     "build": "./node_modules/.bin/jspm build decorator-decorator - reflect build/index.js --minify --format umd --global-name DecoratorDecorator --skip-source-maps",
     "prepublish": "npm run build",
     "test:run": "./node_modules/.bin/jspm run tests",
+    "pretest": "./node_modules/.bin/jspm install",
     "test": "npm run test:run | ./node_modules/.bin/faucet",
     "start": "./node_modules/.bin/jspm-server --port=45345 src/"
   },
