@@ -11,13 +11,12 @@ $ npm install decorator-decorator
 
 There are only two constraints:
 * The class must contain a `decorate` method
-* The first parameter to the decorator can't be a function
 
 ```javascript
 
 import decorator from 'decorator-decorator';
 
-@decocrator
+@decorator
 class Foo {
 	decorate({target, prop, descriptor}, param1, param2) {
 		// do stuff
@@ -26,7 +25,7 @@ class Foo {
 
 // now you can use Foo as decorator
 
-@Foo
+@Foo('param1', 'param2')
 class Bar {
 }
 
